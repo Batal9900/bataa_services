@@ -2,21 +2,20 @@
 
 import Image from "next/image";
 import { useState } from "react";
-// import Navbar from "@/components/Navbar";
+
 
 export default function Home() {
   const [hoveredService, setHoveredService] = useState('');
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      {/* <Navbar /> */}
+
 
       {/* Hero Section with Asset SVG */}
       <section className="relative py-20 bg-white">
         <div className="grid lg:grid-cols-2 gap-6 items-center">
-          {/* Left Content Container */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:col-span-1">
+          {/* Mobile: Image appears first, Desktop: Left Content */}
+          <div className="order-2 lg:order-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:col-span-1">
             {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-4">
@@ -84,8 +83,8 @@ export default function Home() {
 
           </div>
           
-          {/* Right Content with Asset SVG - Full Width */}
-          <div className="relative w-full h-full lg:col-span-1">
+          {/* Mobile: Image appears first, Desktop: Right Content */}
+          <div className="order-1 lg:order-2 relative w-full h-full lg:col-span-1">
             <Image
               src="/images/Hero.svg"
               alt="Asset SVG"
@@ -100,8 +99,8 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="bg-green-800 py-12 relative">
-        {/* Circular Images - Positioned to overlap with hero section */}
-        <div className="absolute -top-20 left-1/2 transform -translate-x-1/2">
+        {/* Circular Images - Positioned to overlap with hero section - Hidden on mobile */}
+        <div className="hidden lg:block absolute -top-20 left-1/2 transform -translate-x-1/2">
           <div className="grid grid-cols-3 gap-16">
             <div className="text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -175,9 +174,9 @@ export default function Home() {
 
       {/* Image Collage Section */}
       <section className="bg-white">
-        {/* Four Images in One Row */}
-        <div className="grid grid-cols-4 gap-0 w-full">
-          <div className="w-full h-[458px] overflow-hidden">
+        {/* Four Images in One Row - Responsive for mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 w-full">
+          <div className="w-full h-[300px] lg:h-[458px] overflow-hidden">
             <Image
               src="/images/01.svg"
               alt="CUZCO RESTAURANT Sign"
@@ -186,7 +185,7 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-full h-[458px] overflow-hidden">
+          <div className="w-full h-[300px] lg:h-[458px] overflow-hidden">
             <Image
               src="/images/02.svg"
               alt="ILIO Sign with Cherub"
@@ -195,7 +194,7 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-full h-[458px] overflow-hidden">
+          <div className="w-full h-[300px] lg:h-[458px] overflow-hidden">
             <Image
               src="/images/03.svg"
               alt="CONNECT AI Illuminated Sign"
@@ -204,7 +203,7 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-full h-[458px] overflow-hidden">
+          <div className="w-full h-[300px] lg:h-[458px] overflow-hidden">
             <Image
               src="/images/04.svg"
               alt="Modern Building with ILIO Display"
@@ -235,88 +234,88 @@ export default function Home() {
             <div className="space-y-8">
               <div className="inline-block">
                 <div className="border-1 border-green-500 rounded-full px-4 py-1">
-                  <h2 className="text-[26px] font-bold"><i className="text-green-800">BATAL</i> Service</h2>
+                  <h2 className="text-[20px] lg:text-[26px] font-bold"><i className="text-green-800">BATAL</i> Service</h2>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <p className="text-[16px] text-gray-700 leading-relaxed">
+                <p className="text-[14px] lg:text-[16px] text-gray-700 leading-relaxed">
                   BATAL is a top-rated signage company in Dubai, offering custom signage solutions for businesses across the UAE.<br /> We specialize in illuminated signs, 3D letter signage, and glass & vinyl decals to wayfinding systems, hoardings, and vehicle branding. Our expert team designs, fabricates, and installs signs for shops, malls, buildings, offices, restaurants, and more with fast delivery and durable results. Trust BATAL for high-impact visual branding.
                 </p>
 
-                <div className="grid grid-cols-2 gap-x-8 gap-y-8 mt-4">
-                  {/* Row 1 */}
-                  <div className="space-y-3">
-                    <h3 className="text-[16px] text-gray-900 font-semibold">Illuminated Signs</h3>
-                    <p className="text-gray-600 text-[12px] leading-relaxed">Energy-efficient LED and backlit signs for shops, restaurants, and offices. Durable and suitable for high-traffic areas and 24/7 exposure in Dubai and Sharjah.</p>
+                <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 lg:gap-x-8 lg:gap-y-8 mt-4">
+                  {/* Row 1 - 2 services */}
+                  <div className="space-y-2 lg:space-y-3">
+                    <h3 className="text-[11px] lg:text-[16px] text-gray-900 font-semibold">Illuminated Signs</h3>
+                    <p className="text-gray-600 text-[9px] lg:text-[12px] leading-relaxed">Energy-efficient LED and backlit signs for shops, restaurants, and offices. Durable and suitable for high-traffic areas and 24/7 exposure in Dubai and Sharjah.</p>
                     <Image
                       src="/images/services batal strip.png"
                       alt="Services Strip"
                       width={147}
                       height={4}
-                      className="w-[147px] h-[4px] object-cover"
+                      className="w-[80px] lg:w-[147px] h-[2px] lg:h-[4px] object-cover"
                     />
                   </div>
                   
-                  <div className="space-y-3">
-                    <h3 className="text-[16px] text-gray-900 font-semibold">Glass & Vinyl Signs</h3>
-                    <p className="text-gray-600 text-[12px] leading-relaxed">Upgrade interiors or storefronts with vinyl decals, glass frosting, and logo stickers. Weatherproof, removable, and perfect for branding in offices, cafes, or retail spaces.</p>
+                  <div className="space-y-2 lg:space-y-3">
+                    <h3 className="text-[11px] lg:text-[16px] text-gray-900 font-semibold">Glass & Vinyl Signs</h3>
+                    <p className="text-gray-600 text-[9px] lg:text-[12px] leading-relaxed">Upgrade interiors or storefronts with vinyl decals, glass frosting, and logo stickers. Weatherproof, removable, and perfect for branding in offices, cafes, or retail spaces.</p>
                     <Image
                       src="/images/services batal strip.png"
                       alt="Services Strip"
                       width={147}
                       height={4}
-                      className="w-[147px] h-[4px] object-cover"
+                      className="w-[80px] lg:w-[147px] h-[2px] lg:h-[4px] object-cover"
                     />
                   </div>
                   
-                  {/* Row 2 */}
-                  <div className="space-y-3">
-                    <h3 className="text-[16px] text-gray-900 font-semibold">3D Letters</h3>
-                    <p className="text-gray-600 text-[12px] leading-relaxed">3D letter signs in acrylic, metal, or wood—ideal for shopfronts, offices, and receptions. Custom design, premium finishes, and long-lasting quality across the UAE.</p>
+                  {/* Row 2 - 2 services */}
+                  <div className="space-y-2 lg:space-y-3">
+                    <h3 className="text-[11px] lg:text-[16px] text-gray-900 font-semibold">3D Letters</h3>
+                    <p className="text-gray-600 text-[9px] lg:text-[12px] leading-relaxed">3D letter signs in acrylic, metal, or wood—ideal for shopfronts, offices, and receptions. Custom design, premium finishes, and long-lasting quality across the UAE.</p>
                     <Image
                       src="/images/services batal strip.png"
                       alt="Services Strip"
                       width={147}
                       height={4}
-                      className="w-[147px] h-[4px] object-cover"
+                      className="w-[80px] lg:w-[147px] h-[2px] lg:h-[4px] object-cover"
                     />
                   </div>
                   
-                  <div className="space-y-3">
-                    <h3 className="text-[16px] text-gray-900 font-semibold">Pylon/Hoardings</h3>
-                    <p className="text-gray-600 text-[12px] leading-relaxed">Large pylon signs and construction hoardings built to Dubai Municipality standards. Ideal for developers, real estate, and outdoor advertising.</p>
+                  <div className="space-y-2 lg:space-y-3">
+                    <h3 className="text-[11px] lg:text-[16px] text-gray-900 font-semibold">Pylon/Hoardings</h3>
+                    <p className="text-gray-600 text-[9px] lg:text-[12px] leading-relaxed">Large pylon signs and construction hoardings built to Dubai Municipality standards. Ideal for developers, real estate, and outdoor advertising.</p>
                     <Image
                       src="/images/services batal strip.png"
                       alt="Services Strip"
                       width={147}
                       height={4}
-                      className="w-[147px] h-[4px] object-cover"
+                      className="w-[80px] lg:w-[147px] h-[2px] lg:h-[4px] object-cover"
                     />
                   </div>
                   
-                  {/* Row 3 */}
-                  <div className="space-y-3">
-                    <h3 className="text-[16px] text-gray-900 font-semibold">Wayfinding & Directionals</h3>
-                    <p className="text-gray-600 text-[12px] leading-relaxed">Clear, custom wayfinding signage for malls, offices, hospitals, and buildings. Designed for function, brand consistency, and professional installation across Dubai.</p>
+                  {/* Row 3 - 2 services */}
+                  <div className="space-y-2 lg:space-y-3">
+                    <h3 className="text-[11px] lg:text-[16px] text-gray-900 font-semibold">Wayfinding & Directionals</h3>
+                    <p className="text-gray-600 text-[9px] lg:text-[12px] leading-relaxed">Clear, custom wayfinding signage for malls, offices, hospitals, and buildings. Designed for function, brand consistency, and professional installation across Dubai.</p>
                     <Image
                       src="/images/services batal strip.png"
                       alt="Services Strip"
                       width={147}
                       height={4}
-                      className="w-[147px] h-[4px] object-cover"
+                      className="w-[80px] lg:w-[147px] h-[2px] lg:h-[4px] object-cover"
                     />
                   </div>
                   
-                  <div className="space-y-3">
-                    <h3 className="text-[16px] text-gray-900 font-semibold">Vehicle Branding</h3>
-                    <p className="text-gray-600 text-[12px] leading-relaxed">Turn cars, vans, and bikes into mobile ads with custom vehicle wraps and branding stickers. Ideal for delivery fleets and service vehicles across the UAE.</p>
+                  <div className="space-y-2 lg:space-y-3">
+                    <h3 className="text-[11px] lg:text-[16px] text-gray-900 font-semibold">Vehicle Branding</h3>
+                    <p className="text-gray-600 text-[9px] lg:text-[12px] leading-relaxed">Turn cars, vans, and bikes into mobile ads with custom vehicle wraps and branding stickers. Ideal for delivery fleets and service vehicles across the UAE.</p>
                     <Image
                       src="/images/services batal strip.png"
                       alt="Services Strip"
                       width={147}
                       height={4}
-                      className="w-[147px] h-[4px] object-cover"
+                      className="w-[80px] lg:w-[147px] h-[2px] lg:h-[4px] object-cover"
                     />
                   </div>
                 </div>
@@ -326,32 +325,33 @@ export default function Home() {
             {/* Right Content */}
             <div className="space-y-8">
               <div className="text-center">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">Custom-made signs for Shops, Offices, Buildings</h2>
-                <p className="text-2xl text-green-600 italic">Looking for a trusted signage company in Dubai?</p>
+                <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4">Custom-made signs for Shops, Offices, Buildings</h2>
+                <p className="text-lg lg:text-2xl text-green-600 italic">Looking for a trusted signage company in Dubai?</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <Image
                     src="/images/Group (6).png"
                     alt="DARWISH CAFE Interior"
                     width={343}
                     height={275}
-                    className="rounded-lg shadow-lg object-cover w-[343px] h-[275px]"
+                    className="rounded-lg shadow-lg object-cover w-full lg:w-[343px] h-[200px] lg:h-[275px]"
                   />
-                  <div className="flex flex-row gap-2"><Image
+                  <div className="flex flex-row gap-2">
+                    <Image
                     src="/images/Rectangle 8.png"
                     alt="Circular Ornate Sign"
                     width={166}
                     height={210}
-                    className="rounded-lg shadow-lg object-cover w-[140px] h-[210px]"
+                      className="rounded-lg shadow-lg object-cover w-full lg:w-[140px] h-[150px] lg:h-[210px]"
                   />
                   <Image
                     src="/images/Rectangle 9.png"
                     alt="Circular Ornate Sign"
                     width={166}
                     height={210}
-                    className="rounded-lg shadow-lg object-cover w-[140px] h-[210px]"
+                      className="rounded-lg shadow-lg object-cover w-full lg:w-[140px] h-[150px] lg:h-[210px]"
                   />
                   </div>
                 </div>
@@ -361,7 +361,7 @@ export default function Home() {
                     alt="Modern Building with Banners"
                     width={258}
                     height={500}
-                    className="rounded-lg shadow-lg object-cover w-[258px] h-[497px]"
+                    className="rounded-lg shadow-lg object-cover w-full lg:w-[258px] h-[300px] lg:h-[497px]"
                   />
                 </div>
               </div>
@@ -405,21 +405,21 @@ export default function Home() {
   {/* Row with first two images */}
   <div className="flex flex-col items-center gap-6">
   {/* First row with two images */}
-  <div className="flex items-center justify-center gap-8">
-    <div className="text-center">
-      <Image
+            <div className="flex items-center justify-center gap-8">
+              <div className="text-center">
+                <Image
         src="/images/box.png"
-        alt="Group 10"
+                  alt="Group 10"
         width={250}
         height={200}
         className="w-[250px] h-[200px] object-cover"
-      />
-    </div>
-
-    <div className="text-center">
-      <Image
+                />
+              </div>
+              
+              <div className="text-center">
+                <Image
         src="/images/box2.png"
-        alt="Group 11"
+                  alt="Group 11"
         width={250}
         height={200}
         className="w-[250px] h-[200px] object-cover"
@@ -436,19 +436,19 @@ export default function Home() {
         width={250}
         height={200}
         className="w-[250px] h-[200px] object-cover"
-      />
-    </div>
-
-    <div className="text-center">
-      <Image
+                />
+              </div>
+              
+              <div className="text-center">
+                <Image
         src="/images/car.png"
         alt="Rectangle 2"
         width={250}
         height={200}
         className="w-[250px] h-[200px] object-cover"
-      />
-    </div>
-  </div>
+                />
+              </div>
+            </div>
 </div>
 
 </div>
@@ -627,14 +627,14 @@ export default function Home() {
             height={4}
             className="w-full h-1 mt-16 object-cover"
           />
-        </div>
+          </div>
         </section>
         
         {/* Product Showcase Section */}
-      <section className="bg-white">    
+        <section className="bg-white">    
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* 2x4 Grid of Signage Images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* 2x4 Grid of Signage Images - 2 per row on mobile, 4 per row on desktop */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Row 1 - Image 1 */}
             <div className="text-center">
               <div className="mb-3">
@@ -643,10 +643,10 @@ export default function Home() {
                   alt="Offices Signage"
                   width={300}
                   height={300}
-                  className="w-[300px] h-[150px] object-cover rounded-[40px] border-2 border-green-600"
+                  className="w-[300px] h-[150px] md:w-[300px] md:h-[150px] object-cover rounded-[40px] border-2 border-green-600"
                 />
               </div>
-              <p className="text-base font-medium text-gray-800 whitespace-pre-line">
+              <p className="text-base md:font-medium text-gray-800 whitespace-pre-line">
   OFFICE SIGNAGE
   <br />
   (acrylic letters, backlit, 3D logos for corporate offices)
@@ -719,7 +719,7 @@ export default function Home() {
             {/* Row 2 - Image 2 */}
             <div className="text-center">
               <div className="mb-3">
-                <Image
+             <Image
                   src="/images/Section Services (1).png"
                   alt="Offices Signage"
                   width={300}
