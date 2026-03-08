@@ -16,10 +16,64 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "BATAL – Custom Signage & Branding Solutions Dubai",
-  description: "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
-  metadataBase: new URL("https://www.batalone.com"), // base URL of your site
+  description:
+    "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
+  metadataBase: new URL("https://www.batalone.com"),
   alternates: {
-    canonical: "/", // root path, will combine with metadataBase
+    canonical: "/",
+  },
+
+  // Open Graph for social sharing (Facebook, LinkedIn)
+  openGraph: {
+    title: "BATAL – Custom Signage & Branding Solutions Dubai",
+    description:
+      "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
+    url: "https://www.batalone.com",
+    siteName: "BATAL Signage Solutions",
+    images: [
+      {
+        url: "https://www.batalone.com/images/Logos.svg",
+        width: 1200,
+        height: 630,
+        alt: "BATAL Signage Solutions",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  // Twitter card
+  twitter: {
+    card: "summary_large_image",
+    title: "BATAL – Custom Signage & Branding Solutions Dubai",
+    description:
+      "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
+    images: ["https://www.batalone.com/images/Logos.svg"], // Same OG image
+  },
+
+  // JSON-LD / Schema
+  icons: {
+    icon: "/favicon.ico",
+  },
+  other: {
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "BATAL Signage Solutions",
+      url: "https://www.batalone.com",
+      logo: "https://www.batalone.com/images/Logos.svg",
+      image: "https://www.batalone.com/images/Logos.svg",
+      description:
+        "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Al Khabeesi",
+        addressLocality: "Dubai",
+        addressCountry: "UAE",
+      },
+      telephone: "+971501234567",
+      priceRange: "$$",
+    },
   },
 };
 
