@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BATAL - Turn Your Spaces into Brand Stories | Signage Solutions Dubai",
-  description: "BATAL is a top-rated signage company in Dubai, offering custom signage solutions including illuminated signs, 3D letter signage, wayfinding systems, hoardings, and vehicle branding.",
+  title: "BATAL – Custom Signage & Branding Solutions Dubai",
+  description: "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
+  metadataBase: new URL("https://www.batalone.com"), // base URL of your site
+  alternates: {
+    canonical: "/", // root path, will combine with metadataBase
+  },
 };
 
 export default function RootLayout({
