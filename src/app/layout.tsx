@@ -50,31 +50,6 @@ export const metadata: Metadata = {
       "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
     images: ["https://www.batalone.com/images/Logos.svg"], // Same OG image
   },
-
-  // JSON-LD / Schema
-  icons: {
-    icon: "/favicon.ico",
-  },
-  other: {
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: "BATAL Signage Solutions",
-      url: "https://www.batalone.com",
-      logo: "https://www.batalone.com/images/Logos.svg",
-      image: "https://www.batalone.com/images/Logos.svg",
-      description:
-        "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Al Khabeesi",
-        addressLocality: "Dubai",
-        addressCountry: "UAE",
-      },
-      telephone: "+971501234567",
-      priceRange: "$$",
-    },
-  },
 };
 
 export default function RootLayout({
@@ -82,11 +57,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "BATAL Signage Solutions",
+    url: "https://www.batalone.com",
+    logo: "https://www.batalone.com/images/Logos.svg",
+    image: "https://www.batalone.com/images/Logos.svg",
+    description:
+      "Top Dubai signage company offering illuminated signs, 3D letters, vinyl graphics, wayfinding, hoardings & vehicle branding services.",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Al Khabeesi",
+      addressLocality: "Dubai",
+      addressCountry: "UAE",
+    },
+    telephone: "+971501234567",
+    priceRange: "$$",
+  };
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
         <Navbar />
         {children}
         <Footer />
